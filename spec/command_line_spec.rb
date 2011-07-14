@@ -1,6 +1,8 @@
-#according with http://fitnesse.org/FitNesse.UserGuide.SliM.SlimProtocol.PortManagement at 14 July 2011
+#http://fitnesse.org/FitNesse.UserGuide.SliM.SlimProtocol.PortManagement
+require 'run'
 
-describe CommandLine do
+describe Run, "#command line" do
 	it "should use the port 8085 if no command line argument was passed" do
+    command = Run.new
 	end
 end

@@ -1,3 +1,5 @@
+require 'slim_exception'
+require 'runner'
 
-raise   ARGV.size == 0
-puts ARGV[0].to_i
+raise SlimException.new("NO_PORT_WAS_CONFIGURED") unless ARGV.size > 0
+Runner.new ARGV[0]
