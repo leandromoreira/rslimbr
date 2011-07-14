@@ -1,5 +1,22 @@
-(Fitnesse) Slim protocol for Ruby 1.9.x.
-http://fitnesse.org/FitNesse.UserGuide.SliM.SlimProtocol
+HOW TO USE
+
+Download the rslimbr (https://github.com/dreampeppers99/rslimbr/archives/master)
+Set up properly your test page on fitnesse
+
+!define TEST_SYSTEM {slim}
+!define TEST_RUNNER {/where_ever_you_put_files/lib/run.rb}
+!define PATH_SEPARATOR { -I }
+!define COMMAND_PATTERN {ruby -I %p %m}
+!path /where_ever_you_put_files/lib/
+!path /where_ever_you_put_files/wherever_are_your_project/
+
+
+
+Another example from http://leandromoreira.com.br/2011/06/27/acceptance-testing-fitnesse-slim/
+
+
+Slim protocol for Ruby 1.9.x - http://fitnesse.org/FitNesse.UserGuide.SliM.SlimProtocol
+
 The Slim Protocol
 (V0.0)
 
