@@ -14,4 +14,10 @@ describe Runner do
 			runner.port.should == 1515
 		end
 	end
+	describe "a passed port by -DSLIM_PORT=xxxx" do
+		it "should use the coded in parameter port on argument" do
+			runner = Runner.new(" -DSLIM_PORT=2002 ")
+			runner.port.should == 2002			
+		end
+	end
 end
