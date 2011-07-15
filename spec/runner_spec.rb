@@ -2,7 +2,7 @@
 require File.dirname(__FILE__) + '/../lib/runner'
 
 describe Runner do
-	describe "default port" do
+	describe "the default port" do
 		it "should use the port 8085 if no command line argument was passed" do
 		  runner = Runner.new(nil)
 			runner.port.should == 8085
