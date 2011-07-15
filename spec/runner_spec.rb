@@ -20,4 +20,10 @@ describe Runner do
 			runner.port.should == 2002			
 		end
 	end
+	describe "a malformed argument m@lform3D should be ignored" do
+		it "should use the default port 8085" do
+			runner = Runner.new(" m@lform3D ")
+			runner.port.should == 8085			
+		end
+	end
 end
