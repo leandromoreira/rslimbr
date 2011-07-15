@@ -1,4 +1,4 @@
-#http://fitnesse.org/FitNesse.UserGuide.SliM.SlimProtocol.PortManagement
+#specs from http://fitnesse.org/FitNesse.UserGuide.SliM.SlimProtocol.PortManagement
 require File.dirname(__FILE__) + '/../lib/runner'
 
 describe Runner do
