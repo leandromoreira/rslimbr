@@ -1,5 +1,3 @@
-require 'person'
-
 class ItShouldPrintFormattedName
 	attr_accessor :name, :surname
 
