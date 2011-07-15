@@ -1,9 +1,10 @@
 class Runner
 	attr_accessor :port
-	def initializer(parameter)
-		if parameters.contais? ""
-			
+	def initialize(parameter)
+		if parameter == nil 
+			@port= 8085
+		else
+			@port = parameter
 		end
-		@port = parameter
-	end
+	end	
 end
