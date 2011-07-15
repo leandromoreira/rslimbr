@@ -1,8 +1,9 @@
 class Runner
-	def initializer(parameters)
+	attr_accessor :port
+	def initializer(parameter)
 		if parameters.contais? ""
 			
 		end
-		@port = parameters[:port]
+		@port = parameter
 	end
 end
