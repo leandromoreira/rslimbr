@@ -15,7 +15,7 @@ describe Runner do
 		end
 	end
 	describe "Coded port by argument -DSLIM_PORT=xxxx" do
-		it "should use the value of DSLIM_PORT" do
+		it "should use the value (xxxx) of DSLIM_PORT" do
 			runner = Runner.new(" -DSLIM_PORT=2002 ")
 			runner.port.should == 2002			
 		end
