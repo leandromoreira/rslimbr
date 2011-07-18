@@ -27,8 +27,13 @@ class Runner
 		loop {
   		Thread.start(server.accept) do |client|
 				client.puts Constants::SlimVersion
-				log "Sent to fitnesse the version #{Constants::SlimVersion}!"
-  	  	log client.recv 100
+				log "Sent to fitnesse the version #{Constants::SlimVersion}"
+
+				request_size = client.recv(6)
+				log request_size
+				request_plain_message = client.recv request_size
+ 
+  	  	log request_plain_message
 				client.close
   		end
 		}	
