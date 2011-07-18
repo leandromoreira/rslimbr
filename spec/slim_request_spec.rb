@@ -9,4 +9,11 @@ describe SlimRequest do
 			request.size.should == 2180
 		end
 	end
+	describe "Message" do
+		it "should contains the plaintext message" do
+			request = SlimRequest.new "3"
+			request.message = "abc"
+			request.message.should == "abc"
+		end
+	end
 end
