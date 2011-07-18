@@ -17,17 +17,16 @@ class Runner
 			end
 		end
 		log "The port will be #{@port}"
-		start_server
 	end
 	
-	private
 	def start_server
 		log "SlimServer Listening..."
 		server = TCPServer.open @port
 		loop {
   		Thread.start(server.accept) do |client|
+				log "SlimServer connected with #{client}."
 				client.puts Constants::SlimVersion
-				log "Sent to fitnesse the version #{Constants::SlimVersion}"
+				log "SlimServer sents the version #{Constants::SlimVersion}"
 
 				request_size = client.recv(6)
 				log request_size
