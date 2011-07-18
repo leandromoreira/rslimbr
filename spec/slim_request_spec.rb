@@ -15,5 +15,8 @@ describe SlimRequest do
 			request.message = "abc"
 			request.message.should == "abc"
 		end
+		it "the message [00002:000000:[:]:] should produce a list of 2 items" do
+			
+		end
 	end
 end

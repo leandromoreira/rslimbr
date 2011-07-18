@@ -1,6 +1,7 @@
 require 'constants'
 require 'socket'
 require 'logging'
+require 'slim_request'
 
 class Runner
 	include Logging
@@ -29,6 +30,7 @@ class Runner
 				log "SlimServer sents the version #{Constants::SlimVersion}"
 
 				request_size = client.recv(6)
+				
 				log request_size
 				request_plain_message = client.recv request_size
  
