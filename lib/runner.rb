@@ -19,7 +19,7 @@ class Runner
 		log "The port will be #{@port}"
 	end
 	
-	def start_server
+	def start
 		log "SlimServer Listening..."
 		server = TCPServer.open @port
 		loop {
