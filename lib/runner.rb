@@ -26,8 +26,10 @@ class Runner
 		server = TCPServer.open @port
 		loop {
   		Thread.start(server.accept) do |client|
-				log "#{client} connected!"
-  	  	log client.gets
+				client.puts Constants::SlimVersion
+				log "Sent to fitnesse the version #{Constants::SlimVersion}!"
+  	  	log client.recv 100
+				client.close
   		end
 		}	
 	end
