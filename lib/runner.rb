@@ -34,7 +34,7 @@ class Runner
 	 				log request_plain_message
 					client.close
 				rescue => e
-					client.puts "#{Constants::ExceptionMessage}#{e.message}"
+					client.puts "#{Constants::ExceptionMessage}<<#{e.message}>>#{e.backtrace}"
 					log e.message
 					log e.backtrace
 				ensure
