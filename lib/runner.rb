@@ -28,9 +28,9 @@ class Runner
 			log "SlimServer connected with #{client}."
 			client.puts Constants::SlimVersion
 			log "SlimServer sent the version #{Constants::SlimVersion}"
-			request_size = client.recv(6)
-			log request_size
-			request_plain_message = client.recv(request_size.to_i+1)
+			request_size = client.recv(7)
+			request = SlimRequest.new request_size
+			request_plain_message = client.recv request.size
 		 	log request_plain_message
 		rescue => e
 			log e.message
