@@ -37,7 +37,9 @@ class Runner
 			log e.backtrace
 			client.puts "#{Constants::ExceptionMessage}<<#{e.message}>>#{e.backtrace}"
 		ensure
+			log "Closing client => #{client}"
 			client.close
+			log "Closed client => #{client}"
 		end
 	end
 end
