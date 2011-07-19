@@ -23,7 +23,6 @@ class Runner
 	def start
 		log "SlimServer Listening..."
 		server = TCPServer.open @port
-		loop {
   		Thread.start(server.accept) do |client|
 				begin
 					log "SlimServer connected with #{client}."
@@ -42,6 +41,5 @@ class Runner
 					client.close
 				end
   		end
-		}	
 	end
 end
