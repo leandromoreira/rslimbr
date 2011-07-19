@@ -6,4 +6,6 @@ class SlimRequest
 	def size
 		@size
 	end
+	def response
+	end
 end
