@@ -23,23 +23,21 @@ class Runner
 	def start
 		log "SlimServer Listening..."
 		server = TCPServer.open @port
-  		Thread.start(server.accept) do |client|
-				begin
-					log "SlimServer connected with #{client}."
-					client.puts Constants::SlimVersion
-					log "SlimServer sent the version #{Constants::SlimVersion}"
-					request_size = client.recv(6)
-					log request_size
-					request_plain_message = client.recv request_size
-	 				log request_plain_message
-					client.close
-				rescue => e
-					client.puts "#{Constants::ExceptionMessage}<<#{e.message}>>#{e.backtrace}"
-					log e.message
-					log e.backtrace
-				ensure
-					client.close
-				end
-  		end
+    client = server.accept
+		begin 		
+			log "SlimServer connected with #{client}."
+			client.puts Constants::SlimVersion
+			log "SlimServer sent the version #{Constants::SlimVersion}"
+			request_size = client.recv(6)
+			log request_size
+			request_plain_message = client.recv(request_size.to_i+1)
+		 	log request_plain_message
+		rescue => e
+			log e.message
+			log e.backtrace
+			client.puts "#{Constants::ExceptionMessage}<<#{e.message}>>#{e.backtrace}"
+		ensure
+			client.close
+		end
 	end
 end
