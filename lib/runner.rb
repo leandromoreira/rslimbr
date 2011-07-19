@@ -25,17 +25,22 @@ class Runner
 		server = TCPServer.open @port
 		loop {
   		Thread.start(server.accept) do |client|
-				log "SlimServer connected with #{client}."
-				client.puts Constants::SlimVersion
-				log "SlimServer sent the version #{Constants::SlimVersion}"
-
-				request_size = client.recv(6)
-				
-				log request_size
-				request_plain_message = client.recv request_size
- 
-                                log request_plain_message
-				client.close
+				begin
+					log "SlimServer connected with #{client}."
+					client.puts Constants::SlimVersion
+					log "SlimServer sent the version #{Constants::SlimVersion}"
+					request_size = client.recv(6)
+					log request_size
+					request_plain_message = client.recv request_size
+	 				log request_plain_message
+					client.close
+				rescue => e
+					client.puts "#{Constants::ExceptionMessage}#{e.message}"
+					log e.message
+					log e.backtrace
+				ensure
+					client.close
+				end
   		end
 		}	
 	end
