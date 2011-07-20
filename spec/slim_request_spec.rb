@@ -24,5 +24,8 @@ describe SlimRequest do
 		it "given the sample plaintext message should produce a list of 9 lists" do
 			@request.list.list.size.should == 9
 		end
+		it "given the sample plaintext message should produce a list of o sublists" do
+			@request.list.sublist.size.should == 0
+		end
 	end
 end
