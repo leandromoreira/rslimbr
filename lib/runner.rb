@@ -30,7 +30,8 @@ class Runner
 			log "SlimServer sent the version #{Constants::SlimVersion}"
 			request_size = client.recv(Constants::MessageLenghtOffset)
 			request = SlimRequest.new request_size			
-			request_size = client.recv(Constants::MessageLenghtOffset)
+			request.message = client.recv(request.size)
+			log request.message
 			it_is_not_bye_message = request.size != Constants::ByeMessageSize
 
 			while it_is_not_a_bye_message do
