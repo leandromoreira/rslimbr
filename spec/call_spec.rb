@@ -3,7 +3,9 @@ require File.dirname(__FILE__) + '/../lib/instructions/call'
 
 describe Call do
 	describe "Import Instruction" do
-		it "shoud call sum given the instance and should return the sum" do
+		it "shoud call sum function given the instance and it should return the sum" do
+		end
+		it "shoud call xxx and returns __VOID__" do
 		end
 	end
 end
