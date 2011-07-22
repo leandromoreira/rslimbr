@@ -6,9 +6,9 @@ describe Make do
 		@make = Make.new
 	end
 	describe "Make Instruction" do
-		it "should keep an instance of String at instance01 key" do
-			created_object = "args"
-			@make.build "instance01", "String",["args"]
+		it "should keep an instance of String, with test as arg, at instance01 key" do
+			created_object = "test"
+			@make.build "instance01", "String",["test"]
 			@make.instances["instance01"].should == created_object
 		end
 	end
