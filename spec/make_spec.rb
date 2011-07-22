@@ -1,4 +1,4 @@
-#specs from http://fitnesse.org/FitNesse.UserGuide.SliM.SlimProtocol.PortManagement
+#specs from http://fitnesse.org/FitNesse.UserGuide.SliM.SlimProtocol
 require File.dirname(__FILE__) + '/../lib/instructions/make'
 
 describe Make do
