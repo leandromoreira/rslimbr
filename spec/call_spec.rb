@@ -1,16 +1,10 @@
 #specs from http://fitnesse.org/FitNesse.UserGuide.SliM.SlimProtocol
 require File.dirname(__FILE__) + '/../lib/instructions/call'
-require File.dirname(__FILE__) + '/../lib/instructions/Make'
+require File.dirname(__FILE__) + '/../lib/instructions/make'
 
 describe Call do
-	before(:all)
-		@make = Make.new
-  end
-
-	describe "Import Instruction" do
+		describe "Import Instruction" do
 		it "shoud call sum function given the instance and it should return the sum" do
-			@make.build("instance0","String","m")
-			object = make.instances["instance0"].
 		end
 		it "shoud call xxx and returns __VOID__" do
 		end
