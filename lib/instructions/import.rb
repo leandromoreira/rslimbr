@@ -1,3 +1,5 @@
+require 'constants'
+
 class Import
 	attr_accessor :id	
 	def initialize(id)
@@ -7,7 +9,7 @@ class Import
 
 	def add(path)
    @paths[path] = path
-   "OK"
+   Constants::Success
 	end
 	def get(path)
 		@paths[path]	

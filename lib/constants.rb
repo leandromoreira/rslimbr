@@ -4,4 +4,5 @@ module Constants
 	ExceptionMessage = "__EXCEPTION__:"
 	ByeMessageSize = 3
 	MessageLenghtOffset = 7
+	Success = "OK"
 end

@@ -1,3 +1,5 @@
+require 'constants'
+
 class Make
 		attr_accessor :instances
 		def initialize
@@ -10,6 +12,6 @@ class Make
 			else
 				@instances[instance] = Object.const_get(clazz).new(*args)
 			end 
-      "OK"  
+      Constants::Success  
 		end
 end
