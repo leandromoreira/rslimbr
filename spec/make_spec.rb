@@ -6,7 +6,7 @@ describe Make do
 		@make = Make.new
 	end
 	describe "Make Instruction" do
-		it "should keep an instance of String, with test as arg, at instance01 key" do
+		it "should keep an instance of String, with \"test\" as arg, at instance01 key" do
 			created_object = "test"
 			@make.build "instance01", "String",["test"]
 			@make.instances["instance01"].should == created_object
@@ -16,5 +16,9 @@ end
 =begin
 Make: [<id>, make, <instance>, <class>, <arg>...] 
 
-This instruction causes slim to search for a class named <class> in the imported search paths. <class> can also be fully qualified. If found slim looks for a constructor with the right number of arguments. If found, the <arg> strings are converted to the appropriate types, and the constructor is called. The newly create instance is registered under the name <instance>, and the instruction returns OK.
+This instruction causes slim to search for a class named <class> in the imported search paths. 
+<class> can also be fully qualified. 
+If found slim looks for a constructor with the right number of arguments. 
+If found, the <arg> strings are converted to the appropriate types, and the constructor is called.
+The newly create instance is registered under the name <instance>, and the instruction returns OK.
 =end
