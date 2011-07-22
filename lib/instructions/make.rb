@@ -10,5 +10,6 @@ class Make
 			else
 				@instances[instance] = Object.const_get(clazz).new(*args)
 			end 
+      "OK"  
 		end
 end

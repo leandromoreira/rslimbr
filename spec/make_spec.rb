@@ -8,11 +8,10 @@ describe Make do
 	describe "Make Instruction" do
 		it "should keep an instance of String, with \"test\" as arg, at instance01 key" do
 			created_object = "test"
-			@make.build "instance01", "String",["test"]
-			@make.instances["instance01"].should == created_object
+			@make.build("instance01", "String",["test"]).should == "OK"
 		end
 		it "should keep an instance of Foo with two args" do
-			@make.build "instance02", "Foo",["one","two"]
+			@make.build("instance02", "Foo",["one","two"]).should == "OK"
 		end
 	end
 end
