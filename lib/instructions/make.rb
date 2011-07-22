@@ -7,7 +7,7 @@ class Make
 		end
 
 		def build(instance,clazz,args=nil)
-			if args == nil
+			if args.nil?
 				@instances[instance] = Object.const_get(clazz).new
 			else
 				@instances[instance] = Object.const_get(clazz).new(*args)
