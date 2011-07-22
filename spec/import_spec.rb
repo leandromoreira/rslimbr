@@ -5,8 +5,7 @@ describe Import do
 	describe "Import Instruction" do
 		it "should add up import in context" do
 			import = Import.new "id"
-			import.add "Fixtures"
-			import.get("Fixtures").should_not == nil 
+			import.add("Fixtures").should == "OK" 
 		end
 	end
 end

@@ -7,6 +7,7 @@ class Import
 
 	def add(path)
    @paths[path] = path
+   "OK"
 	end
 	def get(path)
 		@paths[path]	
