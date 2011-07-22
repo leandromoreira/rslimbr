@@ -4,11 +4,11 @@ class Make
 			@instances = {}
 		end
 
-		def build(instance,clazz,args)
+		def build(instance,clazz,*args)
 			if args == nil
 				@instances[instance] = Object.const_get(clazz).new
 			else
-				@instances[instance] = Object.const_get(clazz).new(args[0])
+				@instances[instance] = Object.const_get(clazz).new(*args)
 			end 
 		end
 end

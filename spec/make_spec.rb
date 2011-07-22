@@ -11,8 +11,20 @@ describe Make do
 			@make.build "instance01", "String",["test"]
 			@make.instances["instance01"].should == created_object
 		end
+		it "should keep an instance of Foo with two args" do
+			@make.build "instance02", "Foo",["one","two"]
+		end
 	end
 end
+
+class Foo
+	attr_accessor :one, :two
+	def initialize(one,two)
+		@one = one
+		@two = two
+  end
+end
+
 =begin
 Make: [<id>, make, <instance>, <class>, <arg>...] 
 
