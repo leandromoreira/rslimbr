@@ -6,7 +6,7 @@ class Make
 			@instances = {}
 		end
 
-		def build(instance,clazz,args)
+		def build(instance,clazz,args=nil)
 			if args == nil
 				@instances[instance] = Object.const_get(clazz).new
 			else
