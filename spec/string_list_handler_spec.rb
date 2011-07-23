@@ -15,21 +15,21 @@ describe StringListHandler do
         @list = ['hello', 'world']
         @stringed_list = "000035:[000002:000005:hello:000005:world:]"
     end
-    describe "Slim string list coding" do
+    describe "Slim string list encoding" do
         it "can code a simple list" do
-            StringListHandler.code(@list).should == @stringed_list
+            StringListHandler.encode(@list).should == @stringed_list
         end
 
         it "can encode a nested list" do
-            StringListHandler.code([["element"]]).should == "000041:[000001:000024:[000001:000007:element:]:]"
+            StringListHandler.encode([["element"]]).should == "000041:[000001:000024:[000001:000007:element:]:]"
         end
 
         it "can encode empty lists" do
-            StringListHandler.code([]).should == "000009:[000000:]"
+            StringListHandler.encode([]).should == "000009:[000000:]"
         end
         
         it "can encode null items" do
-            StringListHandler.code([nil]).should == "000021:[000001:000004:null:]"
+            StringListHandler.encode([nil]).should == "000021:[000001:000004:null:]"
         end
     end
 

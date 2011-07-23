@@ -1,5 +1,5 @@
 class StringHandler
-    def self.code(s)
+    def self.encode(s)
         s = 'null' if s.nil?
         prefix = string_prefix s.length
         "#{prefix}#{s}"
