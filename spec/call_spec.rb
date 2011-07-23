@@ -31,7 +31,9 @@ describe Call do
 				returned_value = @call.call "instance0","homer_simpsons",['sat','down']
 				returned_value.should == 'sat down'
 			end
-			it "shoud call xxx and returns __VOID__" do
+			it "shoud call grifin_do_nothing and returns __VOID__" do
+				returned_value = @call.call "instance0","grifin_do_nothing"
+				returned_value.should == '__VOID__'
 			end
 	end
 end

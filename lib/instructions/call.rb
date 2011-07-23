@@ -4,9 +4,10 @@ class Call
 	end
 	def call(instance,function,args=nil)
 		if args.nil?
-			@instances[instance].send function
+			returned_value = @instances[instance].send function
 		else
-			@instances[instance].send function,*args
-		end 	
+			returned_value = @instances[instance].send function,*args
+		end
+		 (returned_value.nil?)?"__VOID__":returned_value   	
 	end
 end
