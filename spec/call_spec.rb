@@ -6,15 +6,20 @@ describe Call do
 		before(:all) do
 			@make = Make.new
 			@make.build("instance0", "String","test")
+			@call = Call.new @make.instances
 		end
+		
 		describe "Import Instruction" do
-		it "shoud call sum function given the instance and it should return the sum" do
-			call = Call.new
-			returned_value = call.call "instance0","sum"
-			returned_value.should == 448
-		end
-		it "shoud call xxx and returns __VOID__" do
-		end
+			it "shoud call sum function given the instance and it should return the sum" do
+				returned_value = @call.call "instance0","sum"
+				returned_value.should == 448
+			end
+			it "shoud call index('e') and it should return the 1" do
+				returned_value = @call.call "instance0","index",'e'
+				returned_value.should == 1
+			end
+			it "shoud call xxx and returns __VOID__" do
+			end
 	end
 end
 
