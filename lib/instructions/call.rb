@@ -6,7 +6,7 @@ class Call
 		if args.nil?
 			@instances[instance].send function
 		else
-			@instances[instance].send function,args
+			@instances[instance].send function,*args
 		end 	
 	end
 end

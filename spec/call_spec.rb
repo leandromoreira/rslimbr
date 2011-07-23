@@ -2,6 +2,15 @@
 require File.dirname(__FILE__) + '/../lib/instructions/call'
 require File.dirname(__FILE__) + '/../lib/instructions/make'
 
+class String
+	def homer_simpsons(say,something)
+		"#{say} #{something}"
+	end
+	def grifin_do_nothing
+	end
+end
+
+
 describe Call do
 		before(:all) do
 			@make = Make.new
@@ -18,10 +27,15 @@ describe Call do
 				returned_value = @call.call "instance0","index",'e'
 				returned_value.should == 1
 			end
+			it "shoud call homer_simpsons('sat','down') and it should return the 'sat down'" do
+				returned_value = @call.call "instance0","homer_simpsons",['sat','down']
+				returned_value.should == 'sat down'
+			end
 			it "shoud call xxx and returns __VOID__" do
 			end
 	end
 end
+
 
 =begin
 Call: [<id>,call,<instance>,<function>,<arg>...] 
