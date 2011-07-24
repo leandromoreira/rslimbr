@@ -1,11 +1,14 @@
 #specs from http://fitnesse.org/FitNesse.UserGuide.SliM.SlimProtocol
 require File.dirname(__FILE__) + '/../lib/instructions/make'
+require File.dirname(__FILE__) + '/../lib/instructions/import'
 
 describe Make do
 	before(:all) do
-		@make = Make.new
+		@import = Import.new "id0"
+		@import.add "Fixtures"
+		@make = Make.new(@import.imports)
 	end
-	describe "Make Instruction" do
+	describe "Instruction" do
 		it "should create an instance of Zoo" do
 			@make.build("instance00", "Zoo").should == "OK"
 		end
@@ -14,6 +17,9 @@ describe Make do
 		end
 		it "should keep an instance of Foo with two args" do
 			@make.build("instance02", "Foo",["one","two"]).should == "OK"
+		end
+		it "should look at import to create object" do
+			@make.build("instance03", "Any").should == "OK"
 		end
 	end
 end
@@ -26,6 +32,11 @@ class Foo
 	def initialize(one,two)
 		@one = one
 		@two = two
+  end
+end
+
+module Fixtures
+  class Any
   end
 end
 

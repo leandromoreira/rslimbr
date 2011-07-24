@@ -1,7 +1,7 @@
 require 'constants'
 
 class Import
-	attr_accessor :id	
+	attr_accessor :id
 	def initialize(id)
 		@id = id
     @paths = {}
@@ -13,5 +13,8 @@ class Import
 	end
 	def get(path)
 		@paths[path]	
+	end
+	def imports
+		@paths
 	end
 end
