@@ -25,15 +25,10 @@ class Runner
 		server = TCPServer.open @port
     client = server.accept
 		begin 		
-			log "SlimServer connected with #{client}."
-			client.puts Constants::SlimVersion
-			log "SlimServer sent the version #{Constants::SlimVersion}"
-			request_size = client.recv(Constants::MessageLenghtOffset)
-			request = SlimRequest.new request_size			
-			request.message = client.recv(request.size)
+			request = start_connection(client)
 			log request.message
 			it_is_not_bye_message = request.size != Constants::ByeMessageSize
-
+			
 			while it_is_not_a_bye_message do
 				request = SlimRequest.new request_size
 				request.message = client.recv request.size
@@ -42,6 +37,7 @@ class Runner
 				request_size = client.recv(Constants::MessageLenghtOffset)
 				it_is_not_bye_message = request.size != Constants::ByeMessageSize
 			end
+
 		rescue => e
 			log e.message
 			log e.backtrace
@@ -51,5 +47,16 @@ class Runner
 			client.close
 			log "Closed client => #{client}"
 		end
+	end
+	private
+	def start_connection(client)
+		log "SlimServer connected with #{client}."
+		client.puts Constants::SlimVersion
+		log "SlimServer sent the version #{Constants::SlimVersion}"
+		request_size = client.recv(Constants::MessageLenghtOffset)
+		request = SlimRequest.new request_size			
+		request.message = client.recv(request.size)
+		log "SlimServer request => #{request.message}"
+		request
 	end
 end
