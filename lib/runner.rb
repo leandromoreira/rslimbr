@@ -20,9 +20,9 @@ class Runner
 	end
 	
 	def start
-		client = start_server
+		client = listening_client
 		begin 		
-			request = start_connection(client)
+			request = start_connection_with(client)
 			while request.is_not_a_bye? do
 				request = SlimRequest.new request_size
 				request.message = client.recv request.size
@@ -42,12 +42,12 @@ class Runner
 
 
 	private
-	def start_server
+	def listening_client
 		log "SlimServer Listening..."
 		server = TCPServer.open @port
     server.accept
 	end
-	def start_connection(client)
+	def start_connection_with(client)
 		log "SlimServer connected with #{client}."
 		client.puts Constants::SlimVersion
 		log "SlimServer sent the version #{Constants::SlimVersion}"
