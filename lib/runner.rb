@@ -21,12 +21,9 @@ class Runner
 	end
 	
 	def start
-		log "SlimServer Listening..."
-		server = TCPServer.open @port
-    client = server.accept
+		client = start_server
 		begin 		
 			request = start_connection(client)
-			log request.message
 			it_is_not_bye_message = request.size != Constants::ByeMessageSize
 			
 			while it_is_not_a_bye_message do
@@ -48,7 +45,14 @@ class Runner
 			log "Closed client => #{client}"
 		end
 	end
+
+
 	private
+	def start_server
+		log "SlimServer Listening..."
+		server = TCPServer.open @port
+    server.accept
+	end
 	def start_connection(client)
 		log "SlimServer connected with #{client}."
 		client.puts Constants::SlimVersion
