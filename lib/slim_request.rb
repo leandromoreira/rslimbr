@@ -10,8 +10,6 @@ class SlimRequest
 	def size
 		@size
 	end
-	def response
-	end
 	def is_not_a_bye?
 		#size != Constants::ByeMessageSize & @message.downcase != "bye"
 		size != Constants::ByeMessageSize
