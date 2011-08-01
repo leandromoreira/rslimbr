@@ -26,8 +26,7 @@ class Runner
 			while request.is_not_a_bye? do
 				request = SlimRequest.new request_size
 				request.message = client.recv request.size
-				response = request.response
-				client.puts response.message				
+				client.puts request.response				
 				request_size = client.recv(Constants::MessageLenghtOffset)
 			end
 		rescue => e
