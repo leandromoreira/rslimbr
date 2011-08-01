@@ -24,17 +24,13 @@ class Runner
 		client = start_server
 		begin 		
 			request = start_connection(client)
-			it_is_not_bye_message = request.size != Constants::ByeMessageSize
-			
-			while it_is_not_a_bye_message do
+			while request.is_not_a_bye? do
 				request = SlimRequest.new request_size
 				request.message = client.recv request.size
 				response = request.response
 				client.puts response.message				
 				request_size = client.recv(Constants::MessageLenghtOffset)
-				it_is_not_bye_message = request.size != Constants::ByeMessageSize
 			end
-
 		rescue => e
 			log e.message
 			log e.backtrace
