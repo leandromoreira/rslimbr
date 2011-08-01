@@ -17,7 +17,6 @@ class Runner
 				@port = (@port==0) ? Constants::DefaultPort : @port
 			end
 		end
-		log "The port will be #{@port}"
 	end
 	
 	def start
