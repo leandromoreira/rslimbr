@@ -24,10 +24,8 @@ class Runner
 		begin 		
 			request = start_connection_with client
 			while request.is_not_a_bye? do
-				request = SlimRequest.new request.size
-				request.message = client.recv(request.size)
-				client.puts @slim.process(request)
-				request_size = client.recv(Constants::MessageLenghtOffset)
+				@slim.process request, client				
+				request = next_request_from client				
 			end
 		rescue => e
 			log e.message
