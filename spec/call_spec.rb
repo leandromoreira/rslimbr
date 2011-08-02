@@ -18,7 +18,7 @@ describe Call do
 			@call = Call.new @make.instances
 		end
 		
-		describe "Import Instruction" do
+		describe "Call Instruction" do
 			it "shoud call sum function given the instance and it should return the sum" do
 				returned_value = @call.call "instance0","sum"
 				returned_value.should == 448
