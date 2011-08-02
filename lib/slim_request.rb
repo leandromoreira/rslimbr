@@ -1,11 +1,9 @@
-require 'list'
 require 'constants'
 
 class SlimRequest
 	attr_accessor :message, :instructions, :list
 	def initialize(size)
 		@size = size.to_i
-		@list = List.new
 	end
 	def size
 		@size
