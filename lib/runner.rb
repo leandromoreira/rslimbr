@@ -25,7 +25,7 @@ class Runner
 		begin 		
 			request = start_connection_with client
 			while request.is_not_a_bye? do
-				slim.process request, client				
+				slim.process :from => request, :to => client				
 				request = next_request_from client				
 			end
 		rescue => e
