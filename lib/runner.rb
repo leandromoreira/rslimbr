@@ -42,7 +42,7 @@ class Runner
 
 	private
 	def listening_client
-		log "SlimServer Listening..."
+		log "SlimServer Listening @#{@port}"
 		server = TCPServer.open @port
     server.accept
 	end
@@ -55,5 +55,8 @@ class Runner
 		request.message = client.recv(request.size)
 		log "SlimServer request => #{request.message}"
 		request
+	end
+	def next_request_from(client)
+		
 	end
 end
