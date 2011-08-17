@@ -5,7 +5,7 @@ require 'slim_request'
 
 class Runner
 	include Logging
-	attr_accessor :port
+	attr_reader :port
 	def initialize(parameter)
 		if parameter == nil 
 			@port = Constants::DefaultPort
@@ -38,7 +38,6 @@ class Runner
 			log "Closed client => #{client}"
 		end
 	end
-
 
 	private
 	def listening_client
